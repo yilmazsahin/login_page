@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form action="" class="login-form">
+      <h1>Login</h1>
+      <input
+        id="kullaniciadi"
+        type="text"
+        class="tbox"
+        placeholder="Enter username"
+      />
+      <input
+        id="parola"
+        type="password"
+        class="pbox"
+        placeholder="Enter password"
+      />
+      <a class="active" href="#"
+        ><input
+          onclick="girisonayi()"
+          id="buton"
+          type="button"
+          class="btn"
+          value="Login"
+      /></a>
+    </form>
+    <script type="text/javascript">
+      var kullanicilar = [
+        { kullaniciadi: "admin", parola: "admin" },
+        { kullaniciadi: "Mehmet Ali", parola: "1234" },
+        { kullaniciadi: "yılmaz", parola: "1234" },
+      ];
+      var girilenkullaniciadi;
+      var girilenparola;
+      var x;
+      function kontrolet() {
+        girilenkullaniciadi = document.getElementById("kullaniciadi").value;
+        girilenparola = document.getElementById("parola").value;
+        for (x of kullanicilar) {
+          if (
+            x.kullaniciadi == girilenkullaniciadi &&
+            x.parola == girilenparola
+          ) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }
+      function girisonayi() {
+        kontrolet();
+        if (kontrolet()) {
+          window.open("calculator/index.html", "_self");
+        } else {
+          alert("Kullanıcı Adı ya da Parola Hatalı Yeniden Deneyiniz.");
+        }
+      }
+    </script>
+  </body>
+</html>
